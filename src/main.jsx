@@ -4,7 +4,7 @@ import { ChatProvider } from './context/ChatContext'
 import { RouterApp } from './router/RouterApp'
 
 // main styles
-import "../src/styles/main.css"
+import "./styles/main.css"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
