@@ -1,0 +1,156 @@
+/* Aside.css */
+
+/* Contenedor principal con la nueva tipografía */
+.aside-container {
+  display: flex;
+  height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Montserrat', sans-serif; /* Coherente con el chat */
+  border-right: 1px solid #f0f0f0;
+  width: 350px;
+  min-width: 320px;
+  
+  overflow: hidden; /* Evita que el contenedor entero scrollee */
+}
+
+
+/* 1. Barra de iconos (Franja Morada Profunda) */
+.nav-sidebar {
+  width: 75px;
+  background: linear-gradient(180deg, #7c3aed 0%, #581c87 100%); /* Degradado morado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0;
+  gap: 25px;
+  flex-shrink: 0;
+}
+
+.nav-sidebar button {
+  background: transparent;
+  border: none;
+  color: #d8b4fe; /* Morado clarito para iconos inactivos */
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.nav-sidebar button:hover, 
+.nav-sidebar button.active {
+  color: #ffffff;
+  transform: translateY(-2px); /* Pequeña animación */
+}
+
+.nav-sidebar button:last-child {
+  margin-top: auto;
+}
+
+/* 2. Panel de lista de chats */
+.chats-panel {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.chats-header {
+  padding: 25px 20px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chats-header h1 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #2d3748;
+  font-weight: 700;
+}
+
+/* Buscador Estilizado */
+.search-container {
+  padding: 0 20px 20px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  transition: border-color 0.2s;
+}
+
+.search-container input:focus {
+  border-color: #d8b4fe;
+  background-color: #fff;
+}
+
+/* Lista de usuarios */
+.users-list {
+    flex: 1; /* Ocupa el espacio sobrante */
+    overflow-y: auto; /* Activa el scroll vertical */
+    padding: 0 10px;
+    
+    /* Calculamos el alto: 100vh menos el espacio del header y el buscador */
+    max-height: calc(100vh - 160px); 
+    
+    /* Un pequeño margen a la derecha para que el scroll no tape los nombres */
+    margin-right: 5px; 
+}
+
+.user-item {
+  display: flex;
+  padding: 16px 15px;
+  margin-bottom: 4px;
+  border-radius: 14px; /* Bordes suaves */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: none; /* Quitamos la línea molesta para un look más limpio */
+}
+
+.user-item:hover {
+  background-color: #fdf2f8; /* El rosa muy suave del fondo del chat */
+}
+
+/* Usuario seleccionado (Coherente con el Chat) */
+.user-item.selected {
+  background-color: #f5f3ff; /* Morado ultra pálido */
+  border-left: 4px solid #7c3aed; /* El morado vibrante de tus mensajes */
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #2d3748;
+  margin-bottom: 2px;
+}
+
+.user-message {
+  font-size: 0.8rem;
+  color: #718096;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+/* Cambiamos el color del nombre cuando está seleccionado */
+.user-item.selected .user-name {
+  color: #7c3aed;
+}

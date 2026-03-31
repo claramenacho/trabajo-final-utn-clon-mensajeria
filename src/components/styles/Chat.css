@@ -1,0 +1,142 @@
+/* Chat.css */
+
+.chat-container {
+    font-family: 'Montserrat', sans-serif;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff; /* Fondo blanco para que respire */
+    height: 100vh;
+}
+
+/* Header con un degradado muy suave y fino */
+.chat-header {
+    background: white;
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.chat-header p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #a855f7; /* El toque morado solo aquí */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Cuerpo del chat limpio */
+.chat-body {
+    flex: 1; 
+    overflow-y: auto; /* Permite el scroll */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 2rem;
+    
+    /* ESTO ES LO MÁS IMPORTANTE: */
+    height: calc(100vh - 160px); /* Ajusta el espacio para que no empuje el footer */
+    background-color: #fafafa;
+}
+
+/* Burbujas estilizadas */
+.messages {
+    max-width: 65%;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-radius: 20px;
+}
+
+/* Recibidos: Blanco con borde rosa muy suave */
+.received {
+    align-self: flex-start;
+    background-color: #ffffff;
+    color: #4a5568;
+    border: 1px solid #fce7f3; /* Rosa pastel casi imperceptible */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* Mis mensajes: Morado elegante */
+.me {
+    align-self: flex-end;
+    background: #7c3aed;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+.timestamp {
+    display: block;
+    font-size: 0.65rem;
+    margin-top: 6px;
+    opacity: 0.6;
+    font-weight: 500;
+}
+
+/* Footer Minimalista */
+
+/* Footer / Área de escritura */
+.chat-footer {
+    padding: 1.5rem 2.5rem;
+    background-color: #ffffff;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-top: 1px solid #f0f0f0; /* Línea divisoria sutil */
+}
+
+/* El input redondeado y claro */
+.chat-footer input {
+    flex: 1;
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    padding: 12px 20px;
+    border-radius: 12px;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+/* Efecto cuando haces clic para escribir */
+.chat-footer input:focus {
+    border-color: #d8b4fe; /* Borde rosa/morado clarito */
+    background: white;
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.1);
+}
+
+/* El botón de enviar elegante */
+.chat-footer button {
+    background: #7c3aed; /* Morado vibrante */
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.chat-footer button:hover {
+    background: #6d28d9; /* Morado más oscuro al pasar el mouse */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.chat-footer button:active {
+    transform: translateY(0);
+}
