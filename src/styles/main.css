@@ -1,0 +1,106 @@
+:root {
+  --primary: #6366f1; /* Mantenemos el violeta vibrante */
+  --primary-hover: #4f46e5;
+  --bg-main: #0f172a; /* Azul noche profundo */
+  --bg-sidebar: #1e293b; /* Slate para el contenedor */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --radius-xl: 20px; /* Bordes ligeramente más redondeados que antes */
+  --radius-md: 10px;
+  --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.4); /* Sombra elegante */
+}
+
+/* Contenedor que centra TODO */
+.cont-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-main);
+  padding: 30px; /* Un poco menos de aire externo */
+}
+
+/* El Formulario: Tamaño Medio y Equilibrado */
+section form {
+  width: 100%;
+  max-width: 440px; /* ANCHO REDUCIDO para equilibrio */
+  padding: 45px;    /* PADDING INTERNO REDUCIDO */
+  background-color: var(--bg-sidebar);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;        /* Espacio generoso pero controlado */
+}
+
+/* Título Más Proporcionado */
+.title-login {
+  font-size: 2rem; /* TAMAÑO DE FUENTE REDUCIDO */
+  text-align: center;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.8px;
+}
+
+/* Inputs Ajustados */
+section form input {
+  width: 100%;
+  padding: 16px 20px; /* ALTURA DE INPUTS REDUCIDA */
+  font-size: 1rem;    /* TAMAÑO DE FUENTE NORMAL */
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+section form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+/* Botón Ajustado */
+section form button {
+  padding: 16px;       /* ALTURA DE BOTÓN REDUCIDA */
+  font-size: 1.1rem;   /* TAMAÑO DE FUENTE LIGERAMENTE MAYOR */
+  font-weight: 700;
+  background-color: var(--primary);
+  color: white;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+}
+
+section form button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px -2px rgba(99, 102, 241, 0.3);
+}
+
+/* Footer Ajustado */
+.form-footer {
+  margin-top: 15px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.form-footer p {
+  color: var(--text-muted);
+  font-size: 0.95rem; /* TAMAÑO DE FUENTE LIGERAMENTE REDUCIDO */
+  margin-bottom: 6px;
+}
+
+.form-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+}

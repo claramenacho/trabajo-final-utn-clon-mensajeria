@@ -1,79 +1,48 @@
-import React, { useState } from 'react'
-import { users } from '../services/mockApi'
-import { MessageSquare, Users, Phone, Monitor, MoreHorizontal, Settings, Search } from 'lucide-react'
-import './styles/Aside.css'
+import { useContext, useEffect, useState } from "react"
+import { ChatContext } from "../context/ChatContext"
+// import { users } from "../services/mockApi.js"
+import '../styles/Chat.css'
 
+const Aside = () => {
+  const [search, setSearch] = useState("")
 
+  const { users, handleSelectedUserId } = useContext(ChatContext)
 
-export const Aside = ({ handleClickUser }) => {
-    console.log("¿Llegó la función?:", handleClickUser);
-    const [search, setSearch] = useState("")
-    const handleChange = (event) => {
-        setSearch(event.target.value)
-    }
-    const filteredUsers = users.filter((user) => user.name.toLowerCase().includes(search.toLowerCase()))
-    console.log(filteredUsers)
+  const handleChange = (event) => {
+    setSearch(event.target.value)
+  }
 
-    return (
-    <aside className="aside-container">
-        <nav className="nav-sidebar">
+  const filteredUsers = users.filter((user) => {
+    const fullName = `${user.firstName} ${user.lastName}`
+    return fullName.toLowerCase().includes(search.toLowerCase())
+  })
 
-            <button className="active">
-                <MessageSquare size={20} />Chats</button>
-            
-            <button>
-                <Monitor size={20} />
-                <span>Conferents</span></button>
-            <button>
-                <Users size={20} />
-                <span>Contacts</span>
-            </button>
-            <button>
-                <Phone size={20} />
-                <span>Calls</span>
-            </button>
-            <button>
-                <MoreHorizontal size={20} />
-                <span>More</span></button>
-            <button>
-                <Settings size={20} />
-                <span>Settings</span></button>
-        </nav>
+  const handleClick = (id) => {
+    handleSelectedUserId(id)
+  }
 
-      
-      <section className="chats-panel">
-        <div className="chats-header">
-          <h1>Chats</h1>
-          <span>+</span>
-        </div>
-        
-        <div className="search-container">
-            
-            <input 
-                type='search' 
-                placeholder="Buscar contacto..." 
-                onChange={handleChange}
-            
-            />
-            <Search size={20} /> 
-          
-        </div>
-
-        <ul className="users-list">
-            {filteredUsers.length === 0 ? (
-            <p style={{ padding: '20px' }}>No se encontraron contactos</p>
-          ) : (
-            filteredUsers.map((user) => (
-              <li key={user.id} className="user-item">
-                <div className="user-info"onClick={() => handleClickUser(user.id)}>
-                    <span className="user-name">{user.name}</span>
-                    <small className="user-message">{user.message}</small>
-                </div>
-              </li>
-            ))
-          )}
-        </ul>
-      </section>
+  return (
+    <aside>
+      <h1>Chat UTN</h1>
+      <input className="search" type="search" placeholder="Buscar contactos..." onChange={handleChange} />
+      {
+        filteredUsers.length === 0 && <p className="not-found-text">No se encontraron contactos</p>
+      }
+      <ul>
+        {
+          filteredUsers.map((user) => (
+            <li key={user.id} onClick={() => handleClick(user.id)}>
+              <img src={user.image} alt="" />
+              <div>
+                {user.firstName} {user.lastName}
+                <small>{user.address.country}</small>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
     </aside>
-  );
+  )
 }
+
+export { Aside }
